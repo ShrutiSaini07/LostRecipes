@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:lost_recipes/Search.dart';
+import 'package:lost_recipes/recipeView.dart';
 
 import 'model.dart';
 
@@ -205,7 +206,9 @@ class _HomePageState extends State<HomePage> {
                         itemCount: recipeList.length,
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>RecipeWebView(recipeList[index].url)));
+                            },
                             child: Card(
                               margin: EdgeInsets.all(20),
                               shape: RoundedRectangleBorder(

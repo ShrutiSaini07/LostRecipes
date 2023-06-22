@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:lost_recipes/model.dart';
+import 'package:lost_recipes/recipeView.dart';
 
 
 
@@ -115,7 +116,9 @@ class _SearchState extends State<Search> {
                         itemCount: recipeList.length,
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>RecipeWebView(recipeList[index].url)));
+                            },
                             child: Card(
                               margin: EdgeInsets.all(20),
                               shape: RoundedRectangleBorder(
